@@ -1,0 +1,10 @@
+{
+    "cypress-cucumber-preprocessor": {
+      "nonGlobalStepDefinitions": true
+    },
+    "cucumberautocomplete": {
+      "steps": [
+        "cypress/integration/common/**/*.js"
+      ]
+    }
+  }
