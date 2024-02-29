@@ -7,10 +7,14 @@
     "test": "npx cypress open --e2e --browser chrome"
   },
   "keywords": [],
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.6.4",
+    "cucumber": "^6.0.7",
+    "cypress": "^13.6.6",
     "cypress-cucumber-preprocessor": "^4.3.1"
   }
 }

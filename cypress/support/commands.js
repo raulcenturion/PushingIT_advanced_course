@@ -29,19 +29,18 @@ Cypress.Commands.add('findByDataCy', (dataCyValue) => {
     return cy.get(`[data-cy="${dataCyValue}"]`);
 });
 Cypress.Commands.add('productPageSelectors', () => {
-    cy.get('[data-cy="add-product"]').as('addProduct');
-    cy.get('[data-cy="productName"]').as('productName');
-    cy.get('[data-cy="productPrice"]').as('productPrice');
-    cy.get('[data-cy="productCard"]').as('productCard').type(productCardImageURL);
-    cy.get('[data-cy="productID"]').as('productID');
-    cy.get('[data-cy="createProduct"]').as('createProduct');
-    cy.get('#closeModal').as('closeModal');
-    cy.get('[data-cy="cancelAddProduct"]').as('cancelAddProduct');
-    cy.get('[data-cy="goShoppingCart"]').as('goShoppingCart');
+    cy.get('[data-cy="add-product"]').as('addProduct').click();
+    cy.get('[data-cy="productName"]').as('productName').type('REMERA VANS NEGRA HOMBRE');
+    cy.get('[data-cy="productPrice"]').as('productPrice').type('26000');
+    //cy.get('[data-cy="productCard"]').as('productCard').type(productCardImageURL);
+    cy.get('[data-cy="productID"]').as('productID').type('950');
+    cy.get('[data-cy="createProduct"]').as('createProduct').click();
+    cy.wait(9000);
+    //cy.get('[data-cy="closeModal"]').as('closeModal').click();
     
 });
 Cypress.Commands.add('OnlineShop', () => {
-    cy.get('data-cy="onlineshoplink"');
+    cy.get('[data-cy="onlineshoplink"]');
 });
 Cypress.Commands.add('findProductByName', () => {
     cy.get('[data-cy="search-bar"]').type('REMERA VANS NEGRA HOMBRE', {enter});
@@ -49,4 +48,12 @@ Cypress.Commands.add('findProductByName', () => {
 
 Cypress.Commands.add('deleteProduc', () => {
     cy.get('[data-cy="delete-950"]').click();
+});
+
+Cypress.Commands.add('CancelAddProduct', () => {
+    cy.get('[data-cy="cancelAddProduct"]').as('cancelAddProduct').click();
+});
+
+Cypress.Commands.add('GoShoppingCart', () => {
+    cy.get('[data-cy="goShoppingCart"]').as('goShoppingCart').click();
 });

@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps';
 import LoginPage from '../pages/loginPage';
+//import {productCardImageURL} from '../support/constants';
 const loginPage = new LoginPage();
 
 
@@ -9,21 +10,23 @@ Given('el usuario se encuentra en la pagina de pushingIt', () => {
 });
 
 And('el usuario esta logueado', () => {
-    loginPage.login('(pushingit','123456!');
+    loginPage.login('pushingit','123456!');
 });
 
 And('se dirige a Online shop', () => {
-    cy.OnlineShop();
+    cy.OnlineShop().click();
+    
 });
 
 And('agrega un producto nuevo', () => {
+    const VANS_NEGRA_HMC = 'https://mmgrim2.azureedge.net/MediaFiles/Grimoldi/2023/10/5/8908435.jpg';
     cy.productPageSelectors();
-    cy.get('@addProduct').click();
-    cy.get('@productName').type('REMERA VANS NEGRA HOMBRE');
-    cy.get('@productPrice').type('26000');
-    cy.get('@productCard').type(productCardImageURL);
-    cy.get('@productID').type('950');
-    cy.get('@createProduct').click();
+    cy.get('@addProduct');
+    cy.get('@productName');
+    cy.get('@productPrice');
+    //cy.get('@productCard').type(VANS_NEGRA_HMC);
+    cy.get('@productID');
+    cy.get('@createProduct');
     cy.get('@closeModal').click();
 });
 
