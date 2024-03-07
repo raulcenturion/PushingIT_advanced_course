@@ -1,8 +1,10 @@
 /// <reference types="cypress" />
 import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps';
 import LoginPage from '../pages/loginPage';
-//import {productCardImageURL} from '../support/constants';
+import ProductMgmPage from '../pages/productMgmPage';
+import {PRODUCT_CARD_IMAGE_URL} from '../support/constants';
 const loginPage = new LoginPage();
+const productMgmPage = new ProductMgmPage();
 
 
 Given('el usuario se encuentra en la pagina de pushingIt', () => {
@@ -19,15 +21,12 @@ And('se dirige a Online shop', () => {
 });
 
 And('agrega un producto nuevo', () => {
-    const VANS_NEGRA_HMC = 'https://mmgrim2.azureedge.net/MediaFiles/Grimoldi/2023/10/5/8908435.jpg';
-    cy.productPageSelectors();
-    cy.get('@addProduct');
-    cy.get('@productName');
-    cy.get('@productPrice');
-    //cy.get('@productCard').type(VANS_NEGRA_HMC);
-    cy.get('@productID');
-    cy.get('@createProduct');
-    cy.get('@closeModal').click();
+    productMgmPage.addProductBtn();
+    productMgmPage.productNameTexbox();
+    productMgmPage.productPriceTexbox();
+    productMgmPage.productImageUrl().type(PRODUCT_CARD_IMAGE_URL.VANS_NEGRA_HMC);
+    productMgmPage.productIdTexbox();
+    productMgmPage.createProductBtn();
 });
 
 When('busca el producto creado recientemente', () => {
