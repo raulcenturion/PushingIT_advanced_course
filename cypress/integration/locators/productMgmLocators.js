@@ -7,5 +7,8 @@ module.exports = {
     PROD_IMAGE_URL_TXTBOX: '[data-cy="productCard"]',
     ID_TXTBOX: '[data-cy="productID"]',
     CREATE_PROD_BTN: '[data-cy="createProduct"]',
-    CANCEL_ADD_PROD_BTN: '[data-cy="cancelAddProduct"]'
+    CANCEL_ADD_PROD_BTN: '[data-cy="cancelAddProduct"]',
+    SEARCH_TYPE: '[data-cy="search-type"]',
+    SEARCH_PRODUCT: '[data-cy="search-bar"]',
+    COFIRM_DELETE_PRODUCT: '#saveEdit'
 }

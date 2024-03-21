@@ -36,13 +36,8 @@ Cypress.Commands.add('OnlineShop', () => {
     cy.get('[data-cy="onlineshoplink"]');
 });
 Cypress.Commands.add('findProductByName', () => {
-    cy.get('[data-cy="search-bar"]').type('REMERA VANS NEGRA HOMBRE', { enter });
+    cy.get('[data-cy="search-bar"]').type('REMERA VANS NEGRA HOMBRE{enter}');
 });
-
-Cypress.Commands.add('deleteProduc', () => {
-    cy.get('[data-cy="delete-950"]').click();
-});
-
 
 
 Cypress.Commands.add('GoShoppingCart', () => {

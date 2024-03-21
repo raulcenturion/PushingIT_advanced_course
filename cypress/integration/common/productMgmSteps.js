@@ -2,7 +2,6 @@
 import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps';
 import LoginPage from '../pages/loginPage';
 import ProductMgmPage from '../pages/productMgmPage';
-import {PRODUCT_CARD_IMAGE_URL} from '../support/constants';
 const loginPage = new LoginPage();
 const productMgmPage = new ProductMgmPage();
 
@@ -24,23 +23,26 @@ And('agrega un producto nuevo', () => {
     productMgmPage.addProductBtn();
     productMgmPage.productNameTexbox();
     productMgmPage.productPriceTexbox();
-    productMgmPage.productImageUrl().type(PRODUCT_CARD_IMAGE_URL.VANS_NEGRA_HMC);
+    productMgmPage.productImageUrl();
     productMgmPage.productIdTexbox();
     productMgmPage.createProductBtn();
+    cy.closeModal();
+    cy.wait(5000);
 });
 
 When('busca el producto creado recientemente', () => {
-    cy.findProductByName();
+    productMgmPage.findProductById();
 });
 
 And('elimina el producto recien creado', () => {
-    cy.deleteProduc();
+    productMgmPage.deleteProduct();
+    cy.closeModal();
 });
 
 And('vuelve a buscar el producto eliminado', () => {
-    cy.findProductByName();
+    productMgmPage.findProductDeleted();
 });
 
 Then('verifica que el producto fue eliminado exitosamente', () => {
-    cy.get('[data-cy="delete-950"]').should('not.exist');
+    productMgmPage.verifyDeleteProduct();
 });

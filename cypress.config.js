@@ -10,7 +10,7 @@ module.exports = defineConfig({
       '**/stepdefinitions/*/*/*', // Excluir archivos dentro de stepdefinitions
       '*.md', '*.ts' // Excluir archivos con extensiones .md y .ts
     ],
-    defaultCommandTimeout: 15000,
+    defaultCommandTimeout: 20000,
     watchForFileChanges: false,
     baseUrl: 'https://pushing-it.vercel.app/',
 
