@@ -1,0 +1,14 @@
+name: Scheduled Workflow
+
+on:
+  schedule:
+    # Ejecutar a las 18:00 UTC todos los días
+    - cron:  '0 18 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run script
+      run: echo "Este es un workflow ejecutado según el cronograma"
